@@ -1,11 +1,8 @@
 module.exports = {
-    name: "ping",
-    description: "Replies with Pong!",
+    name: 'ping',          // Command name
+    description: 'Replies with Pong!',  // Command description
     async execute(interaction) {
-      // Respond with "Pong!" and include the bot's response time
-      const sent = await interaction.reply({ content: "Pong!", fetchReply: true });
-      const timeDifference = sent.createdTimestamp - interaction.createdTimestamp;
-      interaction.editReply(`Pong! 🏓 Latency is ${timeDifference}ms.`);
+      await interaction.reply('Pong!');
     },
   };
   

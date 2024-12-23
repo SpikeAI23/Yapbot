@@ -15,10 +15,15 @@ const loadCommands = () => {
 
   files.forEach(file => {
     const command = require(path.join(commandsPath, file));
-    commands.push({
-      name: command.name,
-      description: command.description,
-    });
+    // Ensure the command has a name and description
+    if (command.name && command.description) {
+      commands.push({
+        name: command.name,
+        description: command.description,
+      });
+    } else {
+      console.warn(`Command file ${file} is missing a name or description.`);
+    }
   });
   console.log('Commands loaded:', commands);
 };
